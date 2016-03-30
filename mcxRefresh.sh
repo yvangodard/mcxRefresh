@@ -29,7 +29,8 @@ function error () {
 }
 
 function alldone () {
-	rm -R /tmp/${scriptName}*
+	ls /tmp/${scriptName}* > /dev/null 2>&1
+	[ $? -eq 0 ] && rm -R /tmp/${scriptName}*
 	exit ${1}
 }
 
